@@ -8,7 +8,7 @@ class MyApp : App(MainView::class, Styles::class) {
 
     override fun start(stage: Stage) {
         super.start(stage)
-        stage.width = 700.0
-        stage.height = 500.0
+        stage.width = 1400.0
+        stage.height = 700.0
     }
 }
