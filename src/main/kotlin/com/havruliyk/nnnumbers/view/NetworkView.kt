@@ -1,6 +1,7 @@
 package com.havruliyk.nnnumbers.view
 
 import com.havruliyk.nnnumbers.util.format
+import com.havruliyk.nnnumbers.util.getGrayColorByValue
 import javafx.scene.control.Label
 import javafx.scene.control.TextField
 import javafx.scene.input.MouseEvent
@@ -87,7 +88,7 @@ class NetworkView {
                         paddingAll = 10
                     }
                     circleBoard(circlesListOutput, circleRadius, 1)
-                    val label = label{
+                    val label = label {
                         paddingAll = 10
                     }
                     outputStaticLabels.add(label)
@@ -155,15 +156,17 @@ class NetworkView {
     }
 
     private fun Circle.setColor(float: Float) {
-        fill = if (float > 0F) {
-            Color.WHITE
-        } else {
-            if (float < 0F) {
-                Color.BLACK
-            } else {
-                Color.GRAY
-            }
-        }
+        fill = getGrayColorByValue(float)
+
+//                if (float > 0F) {
+//            Color.WHITE
+//        } else {
+//            if (float < 0F) {
+//                Color.BLACK
+//            } else {
+//                Color.GRAY
+//            }
+//        }
     }
 
     fun getInputLayer(): Array<Float> {

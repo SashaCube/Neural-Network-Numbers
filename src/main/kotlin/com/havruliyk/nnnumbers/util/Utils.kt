@@ -1,6 +1,7 @@
 package com.havruliyk.nnnumbers.util
 
 import com.havruliyk.nnnumbers.nn.Card
+import javafx.scene.paint.Color
 
 val TEST_CARDS = {
     val cardList = mutableListOf<Card>()
@@ -31,3 +32,9 @@ fun getNumberFromArray(array: Array<Float>): Int {
 }
 
 fun Float.format(digits: Int) = java.lang.String.format("%.${digits}f", this)
+
+fun getGrayColorByValue(value: Float): Color{
+
+    val colorValue = (((value + 1) / 2)*255).toInt()
+    return Color.rgb(colorValue, colorValue, colorValue)
+}
