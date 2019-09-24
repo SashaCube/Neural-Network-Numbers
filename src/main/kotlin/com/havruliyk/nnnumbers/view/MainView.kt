@@ -9,9 +9,67 @@ class MainView : View("Neural Network Numbers"), Contract.IView {
     private val networkView = NetworkView()
     private val presenter: Contract.IPresenter = Presenter(this)
 
-    override val root = hbox {
-        networkView.view(this)
-        addShortcuts()
+    override val root = vbox {
+        hbox {
+            networkView.view(this)
+            addShortcuts()
+        }
+        hbox {
+
+            paddingAll = 25
+
+            button("Train") {
+                setOnAction {
+                    presenter.onTrainAll()
+                }
+                vboxConstraints {
+                    marginLeftRight(10.0)
+                }
+                paddingAll = 5
+            }
+
+            button("Test") {
+                setOnAction {
+                    presenter.onGetNumber(networkView.getInputLayer())
+                }
+                vboxConstraints {
+                    marginLeftRight(10.0)
+                }
+                paddingAll = 5
+            }
+
+            button("Random Number") {
+                setOnAction {
+                    presenter.onGetRandomTestData()
+                }
+                vboxConstraints {
+                    marginLeftRight(10.0)
+                }
+                paddingAll = 5
+            }
+
+            button("Save Number") {
+                setOnAction {
+                    presenter.onSaveTestData(
+                            networkView.getInputLayer(),
+                            networkView.getExpectOutput()
+                    )                }
+                vboxConstraints {
+                    marginLeftRight(10.0)
+                }
+                paddingAll = 5
+            }
+
+            button("Clear") {
+                setOnAction {
+                    networkView.clearAll()
+                }
+                vboxConstraints {
+                    marginLeftRight(10.0)
+                }
+                paddingAll = 5
+            }
+        }
     }
 
     private fun addShortcuts() {

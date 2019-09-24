@@ -41,12 +41,11 @@ class NetworkView {
                 vboxConstraints {
                     marginTop = 10.0
                 }
+                requestFocus()
             }
 
             label {
-                text = "To draw press Alt and move mouse, to clear press Ctrl+R\n" +
-                        "To get random test hand write number press Ctrl+T\n" +
-                        "To save your hand write number to test data press Ctrl+S\n"
+                text = "To draw press Alt and move mouse"
 
                 vboxConstraints {
                     marginTop = 10.0
@@ -55,8 +54,7 @@ class NetworkView {
 
             expectNumberField = textfield {
                 prefWidth = 300.0
-                text = "2"
-                font = Font.font(50.0)
+                font = Font.font(40.0)
 
                 vboxConstraints {
                     marginTop = 10.0
@@ -157,16 +155,6 @@ class NetworkView {
 
     private fun Circle.setColor(float: Float) {
         fill = getGrayColorByValue(float)
-
-//                if (float > 0F) {
-//            Color.WHITE
-//        } else {
-//            if (float < 0F) {
-//                Color.BLACK
-//            } else {
-//                Color.GRAY
-//            }
-//        }
     }
 
     fun getInputLayer(): Array<Float> {
